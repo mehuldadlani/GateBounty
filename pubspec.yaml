@@ -45,6 +45,7 @@ dependencies:
   sliding_clipped_nav_bar: ^3.1.0+4
   google_nav_bar: ^5.0.6
   hidden_drawer_menu: ^3.0.1
+  shared_preferences: ^2.1.2
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:temp/auth_demo/auth_demo.dart';
 import 'package:temp/screens/dao_page.dart';
+import 'package:temp/screens/profile_page.dart';
 import 'package:temp/widgets/my_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   final List <Widget> _pages =[
     const DaoPage(),
     const AuthDemoPage(),
-    const DaoPage(),
+    ProfilePage(),
     const DaoPage()
   ];
 

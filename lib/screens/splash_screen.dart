@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
     return AnimatedSplashScreen(
       splash: Column(
         children: [
-          Image.asset('assets/doge.jpg', height: 100,),
+          Image.asset('assets/particle.png', height: 100,),
         ],
       ),
       nextScreen: const AuthDemoPage(),
