@@ -36,10 +36,33 @@ class MyDrawer extends StatelessWidget {
               onTap:(){
                 Navigator.push(  
     context,  
-    MaterialPageRoute(builder: (context) => const DaoPage()),  
+    MaterialPageRoute(builder: (context) => const DAOPage()),  
   );  
               }
-            ), ListTile(
+              
+            ), 
+             ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profile', style: TextStyle(fontSize: 20),),
+              onTap:(){
+                Navigator.push(  
+    context,  
+    MaterialPageRoute(builder: (context) => const DAOPage()),  
+  );  
+              }
+              
+            ),  ListTile(
+              leading: const Icon(Icons.info_outline),
+              title: const Text('About', style: TextStyle(fontSize: 20),),
+              onTap:(){
+                Navigator.push(  
+    context,  
+    MaterialPageRoute(builder: (context) => const DAOPage()),  
+  );  
+              }
+              
+            ), 
+            ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('Logout', style: TextStyle(fontSize: 20),),
               onTap:() => handleButtonPress(context),

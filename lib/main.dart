@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:temp/screens/about_page.dart';
 import 'package:temp/screens/home_page.dart';
 import 'package:temp/screens/splash_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:temp/auth_demo/auth_demo.dart';
 import 'package:temp/auth_demo/auth_logic.dart';
+import 'package:temp/widgets/my_drawer.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -42,6 +44,14 @@ class _ProfilePageState extends State<ProfilePage> {
     });
   }
 
+  void handleButtonPress(BuildContext context) async {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const AuthDemoPage()),
+  );
+  await AuthLogic.logout();
+}
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -50,6 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return Scaffold(
       backgroundColor: const Color(0xffE7E0D3),
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: const Text(
           'P R O F I L E',
@@ -149,6 +160,16 @@ class _ProfilePageState extends State<ProfilePage> {
                           ],
                         ),
                       ),
+                      SizedBox(height: height * 0.02),
+                      ElevatedButton(onPressed:() => handleButtonPress(context),  style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                        textStyle: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold
+                        )
+                      ),
+                      child: const Text("Logout"),)
                     ],
                   ),
                 ),

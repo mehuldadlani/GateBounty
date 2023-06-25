@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:temp/auth_demo/auth_demo.dart';
+import 'package:temp/screens/about_page.dart';
 import 'package:temp/screens/dao_page.dart';
 import 'package:temp/screens/profile_page.dart';
 import 'package:temp/widgets/my_drawer.dart';
@@ -23,10 +24,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List <Widget> _pages =[
-    const DaoPage(),
-    const AuthDemoPage(),
-    ProfilePage(),
-    const DaoPage()
+    const DAOPage(),
+    const ProfilePage(),
+    const AboutPage()
   ];
 
   @override
@@ -52,10 +52,6 @@ class _HomePageState extends State<HomePage> {
             GButton(
               icon: Icons.home_outlined,
               text: "DAOs",
-            ),
-            GButton(
-              icon: Icons.shopping_bag_outlined,
-              text: "Shop",
             ),
             GButton(
               icon: Icons.person_2_outlined,

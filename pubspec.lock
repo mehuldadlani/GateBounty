@@ -146,7 +146,7 @@ packages:
     source: hosted
     version: "7.0.0"
   dio:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dio
       sha256: a9d76e72985d7087eb7c5e7903224ae52b337131518d127c554b9405936752b8
