@@ -3,7 +3,7 @@
   <b>GateBounty</b>
   <br>
 </p>
-<blockquote align="center">built on <span style="color: #8b0000;">☕</span> at <a href="https://layer.devfolio.co/">Rebuild Ownership</a>.</blockquote>
+<blockquote align="center">built on <span style="color: #8b0000;">☕</span> at <a href="https://rebuild-ownership.devfolio.co/">Rebuild Ownership</a>.</blockquote>
 
 # 💡 What we solve
 
