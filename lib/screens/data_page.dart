@@ -41,7 +41,7 @@ class _DataPageState extends State<DataPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffE7E0D3),
+      backgroundColor: const Color(0xffEDE9FE),
       appBar: AppBar(
         leading: Builder(
           builder: (context) => IconButton(
@@ -55,7 +55,7 @@ class _DataPageState extends State<DataPage> {
           ),
         ),
         elevation: 0,
-        backgroundColor: const Color(0xffE7E0D3),
+        backgroundColor: const Color(0xffEDE9FE),
         title: const Text("D A O   D A T A", style: TextStyle(
           color: Colors.black,
           fontSize: 20,

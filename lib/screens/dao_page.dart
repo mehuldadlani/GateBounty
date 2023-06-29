@@ -87,10 +87,10 @@ class _DAOPageState extends State<DAOPage> {
 
     return Scaffold(
       drawer: MyDrawer(),
-      backgroundColor: const Color(0xffE7E0D3),
+      backgroundColor: const Color(0xffEDE9FE),
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xffE7E0D3),
+        backgroundColor: const Color(0xffEDE9FE),
         elevation: 0,
         centerTitle: true,
         title: const Text(
@@ -126,9 +126,19 @@ class _DAOPageState extends State<DAOPage> {
                     padding: const EdgeInsets.only(top: 15, left: 20, bottom: 10),
                     alignment: Alignment.centerLeft,
                     decoration: BoxDecoration(
+                      boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        blurRadius: 10,
+                        spreadRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                      border: Border.all(color: Color(0xff8B5CF6), width: 2),
                       borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xffF4F0E0),
+                      color: const Color(0xffFFFFFF),
                     ),
+                    
                     height: MediaQuery.of(context).size.height * 0.25,
                     width: MediaQuery.of(context).size.width,
                     child: Row(
@@ -147,21 +157,21 @@ class _DAOPageState extends State<DAOPage> {
                             children: [
                               Text(
                                 daoData.id,
-                                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, ),
                               ),
                               const SizedBox(height: 10),
                               Text(
                                 daoData.description,
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16, ),
                               ),
                               const Spacer(),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  primary: const Color(0xffE7E0D3),
+                                  primary: const Color(0xff8B5CF6),
                                   onPrimary: Colors.black,
-                                  elevation: 0,
+                                  elevation: 10,
                                   minimumSize: const Size(100, 40),
                                 ),
                                 onPressed: () async {
@@ -185,7 +195,7 @@ class _DAOPageState extends State<DAOPage> {
                                     );
                                   }
                                 },
-                                child: const Text('View Data'),
+                                child: const Text('View Data', style: TextStyle( color: Colors.white),),
                               ),
                             ],
                           ),

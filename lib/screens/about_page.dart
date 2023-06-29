@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:temp/widgets/my_drawer.dart';
 
@@ -7,7 +8,7 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffE7E0D3),
+      backgroundColor: const Color(0xffEDE9FE),
       drawer: const MyDrawer(),
       appBar: AppBar(
         leading: Builder(
@@ -19,7 +20,7 @@ class AboutPage extends StatelessWidget {
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
-        backgroundColor: const Color(0xffE7E0D3),
+        backgroundColor: const Color(0xffEDE9FE),
         elevation: 0,
         centerTitle: true,
         title: const Text(
@@ -32,16 +33,16 @@ class AboutPage extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              const Padding(
+               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
-                child: Text(
-                  "Gate Bounty",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+                child: AnimatedTextKit(
+              animatedTexts: [
+                TyperAnimatedText('Gate Bounty', textStyle: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ), speed: const Duration(milliseconds: 100),),
+              ],
+              )),
               const SizedBox(height: 20),
               const Text(
                 "Empowering Collaboration through Token-Gated DAO Opportunities",
@@ -64,6 +65,7 @@ class AboutPage extends StatelessWidget {
                 child: Container(
                   height: 300,
                   decoration: BoxDecoration(
+                    border: Border.all(color: Color(0xff8B5CF6), width: 2),
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
@@ -83,14 +85,15 @@ class AboutPage extends StatelessWidget {
                         child: Text(
                           "Particle Auth",
                           style: TextStyle(
+                            fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),
                           textAlign: TextAlign.center,
                         ),
                       ),
                       Divider(
-                        color: Colors.black,
-                        height: 1,
+                        color:Color(0xff8B5CF6),
+                        height: 2,
                       ),
                       Expanded(
                         child: Padding(
@@ -114,6 +117,7 @@ class AboutPage extends StatelessWidget {
                 child: Container(
                   height: 300,
                   decoration: BoxDecoration(
+                    border: Border.all(color: Color(0xff8B5CF6), width: 2),
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
@@ -133,13 +137,14 @@ class AboutPage extends StatelessWidget {
                         child: Text(
                           "Polybase NFT Token Gating",
                           style: TextStyle(
+                            fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),
                           textAlign: TextAlign.center,
                         ),
                       ),
                       Divider(
-                        color: Colors.black,
+                        color: Color(0xff8B5CF6),
                         height: 1,
                       ),
                       Expanded(
@@ -164,6 +169,7 @@ class AboutPage extends StatelessWidget {
                 child: Container(
                   height: 500,
                   decoration: BoxDecoration(
+                    border: Border.all(color: Color(0xff8B5CF6), width: 2),
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
@@ -183,13 +189,14 @@ class AboutPage extends StatelessWidget {
                         child: Text(
                           "Trustworthy Submission Verification",
                           style: TextStyle(
+                            fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),
                           textAlign: TextAlign.center,
                         ),
                       ),
                       Divider(
-                        color: Colors.black,
+                        color: Color(0xff8B5CF6),
                         height: 1,
                       ),
                       Expanded(

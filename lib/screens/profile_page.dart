@@ -58,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
     var width = size.width;
 
     return Scaffold(
-      backgroundColor: const Color(0xffE7E0D3),
+      backgroundColor: const Color(0xffEDE9FE),
       drawer: const MyDrawer(),
       appBar: AppBar(
         leading: Builder(
@@ -79,7 +79,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: const Color(0xffE7E0D3),
+        backgroundColor: const Color(0xffEDE9FE),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -168,7 +168,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ],
                         ),
                       ),
-                      SizedBox(height: height * 0.02),
+                      SizedBox(height: height * 0.04),
                       ElevatedButton(onPressed:() => handleButtonPress(context),  style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
                         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),

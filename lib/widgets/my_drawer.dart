@@ -21,14 +21,14 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Colors.white,
+        color: Color(0xffEDE9FE),
         child: ListView(
           children: [
             const DrawerHeader(
               child: Center(
                 child: Text(
-                  "L O G O",
-                  style: TextStyle( fontSize: 35),
+                  "M A N G D A O",
+                  style: TextStyle( fontSize: 30),
                 ),
               ),
             ),

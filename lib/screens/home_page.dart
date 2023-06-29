@@ -35,14 +35,16 @@ class _HomePageState extends State<HomePage> {
       drawer: const MyDrawer(),
       body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
-      color: Colors.black,
+      color: Color(0xffEDE9FE),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
         child: GNav(
-          backgroundColor: Colors.black,
-          activeColor: Colors.white,
-          color: Colors.white,
-          tabBackgroundColor: const Color.fromARGB(255, 48, 48, 48),
+          rippleColor: Colors.grey[300]!,
+          textStyle: const TextStyle(color: Colors.black, ),
+          backgroundColor: Color(0xffEDE9FE),
+          activeColor: Colors.black,
+          color: Colors.black,
+          tabBackgroundColor: Colors.white,
           gap: 8,
           padding: const EdgeInsets.all(16),
           selectedIndex: _selectedIndex,

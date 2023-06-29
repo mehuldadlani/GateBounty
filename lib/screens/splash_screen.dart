@@ -12,13 +12,13 @@ class SplashScreen extends StatelessWidget {
     return AnimatedSplashScreen(
       splash: Column(
         children: [
-          Image.asset('assets/particle.png', height: 100,),
+          Text("M A N G D A O", style: TextStyle(fontSize: 40),),
         ],
       ),
       nextScreen: const AuthDemoPage(),
       splashIconSize: 100,
       duration: 1000,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xffEDE9FE),
       splashTransition: SplashTransition.fadeTransition,
       pageTransitionType: PageTransitionType.fade,
     );

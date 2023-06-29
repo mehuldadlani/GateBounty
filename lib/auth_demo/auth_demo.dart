@@ -104,7 +104,7 @@ class AuthDemoPageState extends State<AuthDemoPage> {
     var width = size.width;
 
     return Scaffold(
-      backgroundColor: const Color(0xffE7E0D3),
+      backgroundColor: const Color(0xffEDE9FE),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
@@ -113,7 +113,7 @@ class AuthDemoPageState extends State<AuthDemoPage> {
           style: TextStyle(color: Colors.black, fontSize: 20),
         ),
         centerTitle: true,
-        backgroundColor: const Color(0xffE7E0D3),
+        backgroundColor: const Color(0xffEDE9FE),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -146,6 +146,18 @@ class AuthDemoPageState extends State<AuthDemoPage> {
             Container(
               height: height * 0.09,
               width: width * 0.8,
+              decoration: BoxDecoration(
+                boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        blurRadius: 10,
+                        spreadRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                border: Border.all(color: Color(0xff8B5CF6), width: 2),
+                borderRadius: BorderRadius.circular(10),
+              ),
               child: ElevatedButton(
                 onPressed: () {
                   handleLogin();

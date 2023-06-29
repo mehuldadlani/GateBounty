@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -33,10 +34,20 @@ class _BountyPageState extends State<BountyPage> {
     }
   }
 
+  void handleButtonPress() {
+    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text('Bounty submitted successfully!'),
+                                        duration: Duration(seconds: 3),
+                                        backgroundColor: Colors.green,
+                                      ),
+                                    );
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffE7E0D3),
+      backgroundColor: const Color(0xffEDE9FE),
       appBar: AppBar(
         leading: Builder(
           builder: (context) => IconButton(
@@ -50,7 +61,7 @@ class _BountyPageState extends State<BountyPage> {
           ),
         ),
         elevation: 0,
-        backgroundColor: const Color(0xffE7E0D3),
+        backgroundColor: const Color(0xffEDE9FE),
         title: Text(
           widget.daoName,
           style: TextStyle(
@@ -85,6 +96,45 @@ class _BountyPageState extends State<BountyPage> {
                         'Deadline: ${DateTime.fromMillisecondsSinceEpoch(bounty.deadline)}',
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold), 
                       ),
+                      SizedBox(height: 20),
+                      Container(
+              height: 40,
+              width: 150,
+              decoration: BoxDecoration(
+                boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        blurRadius: 5,
+                        spreadRadius: 3,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                border: Border.all(color: Color(0xff8B5CF6), width: 1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: ElevatedButton(
+                onPressed: () => handleButtonPress(),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                child: 
+                    Text(
+                      "Submit Bounty",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontFamily: GoogleFonts.poppins().fontFamily,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+              ),
+            ),
+            SizedBox(height: 20),
                     ],
                   ),
                   trailing: Text(
@@ -110,6 +160,8 @@ class _BountyPageState extends State<BountyPage> {
     );
   }
 }
+
+
 
 class Bounty {
   final String title;
