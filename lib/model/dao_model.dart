@@ -39,7 +39,7 @@ class DAOData {
   }
 
   factory DAOData.fromMap(Map<String, dynamic> map) {
-  final dataMap = map['data'] as Map<String, dynamic>?; // Access the 'data' field
+  final dataMap = map['data'] as Map<String, dynamic>?; 
   if (dataMap != null) {
     return DAOData(
       description: dataMap['description'] as String? ?? '',
@@ -54,7 +54,7 @@ class DAOData {
 
 static List<DAOData> parseDAODataList(String responseBody) {
   final parsed = json.decode(responseBody);
-  final dataList = parsed['data'] as List<dynamic>?; // Access the 'data' field
+  final dataList = parsed['data'] as List<dynamic>?; 
 
   if (dataList != null) {
     return dataList.map((item) {

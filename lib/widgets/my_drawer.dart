@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:temp/auth_demo/auth_demo.dart';
 import 'package:temp/auth_demo/auth_logic.dart';
 import 'package:temp/screens/dao_page.dart';
+import 'package:temp/screens/home_page.dart';
+import 'package:temp/screens/profile_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -36,7 +38,7 @@ class MyDrawer extends StatelessWidget {
               onTap:(){
                 Navigator.push(  
     context,  
-    MaterialPageRoute(builder: (context) => const DAOPage()),  
+    MaterialPageRoute(builder: (context) => const HomePage()),  
   );  
               }
               
@@ -47,7 +49,7 @@ class MyDrawer extends StatelessWidget {
               onTap:(){
                 Navigator.push(  
     context,  
-    MaterialPageRoute(builder: (context) => const DAOPage()),  
+    MaterialPageRoute(builder: (context) => const ProfilePage()),  
   );  
               }
               

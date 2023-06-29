@@ -102,14 +102,12 @@ class AuthLogic {
     } else {
       final error = RpcError.fromJson(jsonDecode(result)["data"]);
       print(error);
-      // showToast("login: $error");
     }
   }
 
   static isLogin() async {
     bool result = await ParticleAuth.isLogin();
     showToast("isLogin: $result");
-    // print("isLogin: $result");
   }
 
   static Future<bool> isLoginAsync() async {
@@ -117,11 +115,9 @@ class AuthLogic {
     print("isLoginAsync: $result");
     if (jsonDecode(result)["status"] == true || jsonDecode(result)["status"] == 1) {
       log("isLoginAsync: $result");
-      // showToast("isLoginAsync: $result");
       return true;
     } else {
       print("isLoginAsync: $result");
-      // showToast("isLoginAsync: $result");
       return false;
     }
   }
@@ -139,6 +135,5 @@ class AuthLogic {
   static logout() async {
     String result = await ParticleAuth.logout();
     debugPrint("logout: $result");
-    // showToast("logout: $result");
   }
 }

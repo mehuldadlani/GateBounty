@@ -1,9 +1,14 @@
-import 'dart:io';
+
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:particle_auth/particle_auth.dart';
 import 'package:temp/auth_demo/auth_logic.dart';
 import 'package:temp/screens/home_page.dart';
+import 'package:http/http.dart' as http;
+
+
 
 class AuthDemoPage extends StatefulWidget {
   const AuthDemoPage({Key? key}) : super(key: key);
@@ -29,25 +34,62 @@ class AuthDemoPageState extends State<AuthDemoPage> {
 
     bool isLoggedIn = await AuthLogic.isLoginAsync();
     if (isLoggedIn) {
-      setState(() {
-        loginSuccess = true;
-      });
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+      Map<String, String> requestBody = {
+       "publicKey": AuthLogic.evmPubAddress ?? '',
+      };
+
+      var url = Uri.parse('http://192.168.29.117:8080/createUser'); 
+      var response = await http.post(
+        url,
+        body: jsonEncode(requestBody),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       );
+
+      if (response.statusCode == 200) {
+        print('Login and POST request successful');
+        print(response.body);
+
+        setState(() {
+          loginSuccess = true;
+        });
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
+      } else {
+        print('Error in POST request: ${response.statusCode}');
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text("POST Request Failed"),
+            content: const Text("Please try again."),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text("OK"),
+              ),
+            ],
+          ),
+        );
+      }
     } else {
+      print('Login Unsuccessful');
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text("Login Unsuccessful"),
-          content: Text("Please try again."),
+          title: const Text("Login Unsuccessful"),
+          content: const Text("Please try again."),
           actions: [
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context); // Close the dialog
+                Navigator.pop(context); 
               },
-              child: Text("OK"),
+              child: const Text("OK"),
             ),
           ],
         ),

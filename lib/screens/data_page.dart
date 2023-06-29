@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'dart:convert' ;
 
 import 'package:temp/screens/bounty_page.dart';
 
 class DataPage extends StatefulWidget {
   final String daoName;
 
-  DataPage({required this.daoName});
+  // ignore: use_key_in_widget_constructors
+  const DataPage({required this.daoName});
 
   @override
+  // ignore: library_private_types_in_public_api
   _DataPageState createState() => _DataPageState();
 }
 
@@ -22,7 +24,7 @@ class _DataPageState extends State<DataPage> {
   }
 
   Future<DaoData> _fetchDaoData() async {
-    final response = await http.get(Uri.parse('http://192.168.29.117:8000/getSingleDAO?dao=${widget.daoName}'));
+    final response = await http.get(Uri.parse('http://192.168.29.117:8080/getSingleDAO?dao=${widget.daoName}'));
 
     if (response.statusCode == 200) {
       final responseBody = response.body;
@@ -41,9 +43,20 @@ class _DataPageState extends State<DataPage> {
     return Scaffold(
       backgroundColor: const Color(0xffE7E0D3),
       appBar: AppBar(
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
         elevation: 0,
         backgroundColor: const Color(0xffE7E0D3),
-        title: Text("D A O   D A T A", style: TextStyle(
+        title: const Text("D A O   D A T A", style: TextStyle(
           color: Colors.black,
           fontSize: 20,
         ),),
@@ -59,50 +72,50 @@ class _DataPageState extends State<DataPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Description:',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     daoData.description,
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'ID:',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     daoData.id,
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Members:',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     daoData.members.toString(),
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   ElevatedButton(
                      style: ElevatedButton.styleFrom(
-                                  primary: Color.fromARGB(255, 255, 255, 255),
+                                  primary: const Color.fromARGB(255, 255, 255, 255),
                                   onPrimary: Colors.black,
                                   elevation: 0,
                                   minimumSize: const Size(100, 40),
@@ -112,7 +125,7 @@ class _DataPageState extends State<DataPage> {
                                           MaterialPageRoute(
                                             builder: (context) => BountyPage(daoName: daoData.name),
                                           ),
-                                        );}, child: Text("Bounties")),
+                                        );}, child: const Text("Bounties")),
                 ],
               ),
             );
@@ -122,7 +135,7 @@ class _DataPageState extends State<DataPage> {
             );
           }
 
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );
@@ -173,8 +186,8 @@ class Member {
   }
 
   @override
-  String toString() {
-    return id;
+   String toString() {
+    return '$id\n';
   }
 }
 

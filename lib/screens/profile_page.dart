@@ -29,7 +29,6 @@ class _ProfilePageState extends State<ProfilePage> {
         isLoading = false;
       });
     } else {
-      // User is not logged in, trigger the login process
       await AuthLogic.login();
       setState(() {
         currentUser = AuthLogic.currentUser;
@@ -60,8 +59,17 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return Scaffold(
       backgroundColor: const Color(0xffE7E0D3),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       appBar: AppBar(
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
         title: const Text(
           'P R O F I L E',
           style: TextStyle(
@@ -76,7 +84,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: isLoading
-              ? CircularProgressIndicator() // Show loading indicator while fetching user data
+              ? const Center(child: CircularProgressIndicator()) 
               : Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 40.0, vertical: 20),
@@ -136,7 +144,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           children: [
                             Visibility(
                               visible: !showFullAddress,
-                              child: Expanded(
+                              child: const Expanded(
                                 child: Text(
                                   '**********',
                                   style: TextStyle(
@@ -156,7 +164,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                               ),
                             ),
-                            Icon(Icons.visibility),
+                            const Icon(Icons.visibility),
                           ],
                         ),
                       ),

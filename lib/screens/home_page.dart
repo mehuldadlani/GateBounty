@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:temp/auth_demo/auth_demo.dart';
 import 'package:temp/screens/about_page.dart';
 import 'package:temp/screens/dao_page.dart';
 import 'package:temp/screens/profile_page.dart';
 import 'package:temp/widgets/my_drawer.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,8 +32,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      // drawer: MyDrawer(),
-      
+      drawer: const MyDrawer(),
       body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
       color: Colors.black,
@@ -58,7 +57,7 @@ class _HomePageState extends State<HomePage> {
               text: "Profile",
             ),
             GButton(
-              icon: Icons.settings_outlined,
+              icon: Icons.info_outline,
               text: "About",
             ),
           ],

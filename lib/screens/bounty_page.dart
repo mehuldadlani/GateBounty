@@ -21,7 +21,7 @@ class _BountyPageState extends State<BountyPage> {
   }
 
   Future<List<Bounty>> _fetchBountyList() async {
-    final response = await http.get(Uri.parse('http://192.168.29.117:8000/getBounty?dao=${widget.daoName}'));
+    final response = await http.get(Uri.parse('http://192.168.29.117:8080/getBounty?dao=${widget.daoName}'));
 
     if (response.statusCode == 200) {
       final responseBody = response.body;
@@ -38,13 +38,24 @@ class _BountyPageState extends State<BountyPage> {
     return Scaffold(
       backgroundColor: const Color(0xffE7E0D3),
       appBar: AppBar(
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
         elevation: 0,
         backgroundColor: const Color(0xffE7E0D3),
         title: Text(
           widget.daoName,
           style: TextStyle(
             color: Colors.black,
-            fontSize: 20), // Increase the font size
+            fontSize: 20), 
         ),
       ),
       body: FutureBuilder<List<Bounty>>(
@@ -59,27 +70,28 @@ class _BountyPageState extends State<BountyPage> {
                 return ListTile(
                   title: Text(
                     bounty.title,
-                    style: TextStyle(fontSize: 18), // Increase the font size
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold), 
                   ),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 8), // Add spacing between texts
+                      SizedBox(height: 8), 
                       Text(
                         bounty.details,
-                        style: TextStyle(fontSize: 16), // Increase the font size
+                        style: TextStyle(fontSize: 18), 
                       ),
-                      SizedBox(height: 4), // Add spacing between texts
+                      SizedBox(height: 4), 
                       Text(
                         'Deadline: ${DateTime.fromMillisecondsSinceEpoch(bounty.deadline)}',
-                        style: TextStyle(fontSize: 14), // Increase the font size
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold), 
                       ),
                     ],
                   ),
                   trailing: Text(
                     bounty.prize,
-                    style: TextStyle(fontSize: 18), // Increase the font size
+                    style: TextStyle(fontSize: 18), 
                   ),
+                  
                 );
               },
             );
@@ -87,7 +99,7 @@ class _BountyPageState extends State<BountyPage> {
             return Center(
               child: Text(
                 "${snapshot.error}",
-                style: TextStyle(fontSize: 16), // Increase the font size
+                style: TextStyle(fontSize: 16), 
               ),
             );
           }
