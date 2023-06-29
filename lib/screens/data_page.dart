@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' ;
 
@@ -113,19 +114,48 @@ class _DataPageState extends State<DataPage> {
 
                   const SizedBox(height: 20),
 
-                  ElevatedButton(
-                     style: ElevatedButton.styleFrom(
-                                  primary: const Color.fromARGB(255, 255, 255, 255),
-                                  onPrimary: Colors.black,
-                                  elevation: 0,
-                                  minimumSize: const Size(100, 40),
-                                ),
-                    onPressed: (){ Navigator.push(
+                  Container(
+              height: 40,
+              width: 120,
+              decoration: BoxDecoration(
+                boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        blurRadius: 5,
+                        spreadRadius: 3,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                border: Border.all(color: Color(0xff8B5CF6), width: 1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: ElevatedButton(
+                 onPressed: (){ Navigator.push(
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) => BountyPage(daoName: daoData.name),
                                           ),
-                                        );}, child: const Text("Bounties")),
+                                        );},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                child: 
+                    Text(
+                      "Bounties",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontFamily: GoogleFonts.poppins().fontFamily,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+              ),
+            ),
                 ],
               ),
             );
