@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:temp/auth_demo/auth_demo.dart';
 import 'package:temp/auth_demo/auth_logic.dart';
 import 'package:temp/screens/dao_page.dart';
@@ -26,10 +27,7 @@ class MyDrawer extends StatelessWidget {
           children: [
             const DrawerHeader(
               child: Center(
-                child: Text(
-                  "M A N G D A O",
-                  style: TextStyle( fontSize: 30),
-                ),
+                child: Text("G A T E    B O U N T Y", style: TextStyle(fontSize: 25,),)
               ),
             ),
             ListTile(

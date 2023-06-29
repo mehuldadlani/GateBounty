@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       animationDuration: const Duration(milliseconds: 200),
       duration: const Duration(seconds: 5),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: const SplashScreen(),
       ),
     );
